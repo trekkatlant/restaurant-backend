@@ -26,6 +26,5 @@ const RestaurantAddress = db.define("restaurantAddress", {
         type: Sequelize.INT,
         allowNull: false
     }
-
 });
 module.exports = RestaurantAddress;
