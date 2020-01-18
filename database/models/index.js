@@ -19,14 +19,14 @@ Restaurant.hasOne(Menu);
 RestaurantAddress.belongsTo(Restaurant);
 Restaurant.hasOne(RestaurantAddress);
 
-Order.belongsTo(User, {as : "creator"});
+Order.belongsTo(User);
 User.hasMany(Order);
-Order.belongsTo(Restaurant, {as: "receiver"});
+Order.belongsTo(Restaurant);
 Restaurant.hasMany(Order);
 
 OrderItem.belongsTo(Order);
 Order.hasMany(OrderItem);
 
 module.exports = { User, UserAddress, PaymentInfo, 
-Restaurant, Menu, RestaurantAddress, Order, OrderItem};
+Restaurant, Menu, RestaurantAddress, Order, OrderItem };
 
