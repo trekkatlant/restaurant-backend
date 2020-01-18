@@ -3,7 +3,7 @@ const db = require("../db");
 
 const OrderItem = db.define("orderItem", {
     quantity : {
-        type: Sequelize.INT,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     price : {
@@ -11,7 +11,7 @@ const OrderItem = db.define("orderItem", {
         allowNull: false
     },
     itemId : {
-        type: Sequelize.INT,
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 });
