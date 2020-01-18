@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
+const crypto = require("crypto");
 
 const User = db.define("user", {
     firstName : {
@@ -12,11 +13,16 @@ const User = db.define("user", {
     },
     email : {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true,
+
     },
     password : {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        get() {
+            return () => this.getDataValue("password");
+        }
     },
     phoneNum: {
         type: Sequelize.STRING,
