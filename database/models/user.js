@@ -14,8 +14,7 @@ const User = db.define("user", {
     email : {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
-
+        // unique: true,
     },
     password : {
         type: Sequelize.STRING,
@@ -38,6 +37,8 @@ const User = db.define("user", {
         type: Sequelize.INTEGER,
         allowNull: false
     }
+},{
+    timestamps: false
 });
 
 // User.generateSalt = function (){
