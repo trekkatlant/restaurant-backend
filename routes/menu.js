@@ -8,26 +8,26 @@ router.use(bodyParser.json());
 router.get("/", async(req, res, next) => {
     try {
         let data = await Menu.findAll();
-        if(!data) {
-            res.status(400).send(err);
-        } else {
+        if(data) {
             res.status(200).json(data);
+        } else {
+            res.status(400).send(err);
         }
     } catch(err) {
-        next(err);
+        res.status(400).send(err);
     }
 });
 //gets menue item with id
 router.get("/:id", async(req, res, next) => {
     try {
         let data = await Menu.findOne({ where: { id: req.params.id }});
-        if(!data) {
-            res.status(404).send(err);
-        } else {
+        if(data) {
             res.status(200).json(data);
+        } else {
+            res.status(404).json(err);
         }
     } catch(err) {
-        next(err);
+        res.status(400).send(err);
     }
 });
 
