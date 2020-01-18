@@ -46,7 +46,7 @@ const app = express();
 const cors = require("cors");
 const db = require("./database");
 const seedDatabase = require("./seed/index");
-let PORT = process.env.PORT || 4000;
+let PORT = 4000;
 
 db.sync({force:true})
 .then(async () => {
