@@ -51,10 +51,10 @@ db.sync({force:true})
 .then(async () => {
   seedDatabase();
   app.use(cors());
+  // app.get("/", (req, res, next) => {
+  //   res.status(200).send("Default API route");
+  // });
   app.use("/api", apiRouter);
-  app.get("/", (req, res, next) => {
-    res.status(200).send("Default API route");
-  })
   app.listen(PORT, () => {
     console.log("Server is listening on port" + PORT);
   })
