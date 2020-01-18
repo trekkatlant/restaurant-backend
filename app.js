@@ -4,16 +4,17 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require("express-session");
 const passport = require("passport");
-const authRouter = require("./routes/auth");
+const apiRouter = require("./routes/index");
+const db = require("./database");
+// const authRouter = require("./routes/auth");
 // const apiRouter = require("./routes");
 const cors = require("cors");
 const express = require("express");
 // const apiRouter = require("./routes/index");
+
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sessionStore = new SequelizeStore({db});
-const db = require("./database");
 const seedDatabase = require("./seed/index");
-
 const app = express();
 
 passport.serializeUser((user, done) => done(null, user.id));
@@ -36,8 +37,9 @@ app.use(cookieParser());
 
 db.sync({force : true})
 .then(async () => {
-  seedDatabase();
+  // seedDatabase();
   app.use(cors());
+  app.use("/", apiRouter);
   app.listen(PORT, () => {
     console.log("Server is listening on port:" + PORT);
   });
