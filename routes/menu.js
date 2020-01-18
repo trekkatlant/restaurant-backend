@@ -6,7 +6,6 @@ router.use(bodyParser.json());
 
 //gets all menu items
 router.get("/", async(req, res, next) => {
-    console.log("hellovrwkfn")
     try {
         let data = await Menu.findAll();
         if(data) {
@@ -20,7 +19,6 @@ router.get("/", async(req, res, next) => {
 });
 //gets menue item with id
 router.get("/:id", async(req, res, next) => {
-    res.send("hellovrwkfn")
     try {
         let data = await Menu.findOne({ where: { id: req.params.id }});
         if(data) {
