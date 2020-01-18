@@ -23,7 +23,7 @@ const RestaurantAddress = db.define("restaurantAddress", {
         allowNull: false
     },
     zipCode : {
-        type: Sequelize.INT,
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 });
