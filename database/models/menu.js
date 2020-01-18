@@ -18,6 +18,8 @@ const Menu = db.define("menuItem", {
         type: Sequelize.STRING,
         allowNull: false
     }
+},{
+    timestamps: false
 });
 
 module.exports = Menu;
