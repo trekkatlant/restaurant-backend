@@ -65,28 +65,28 @@
 
 
 const express = require("express");
-const session = require("express-session");
-const passport = require("passport");
+// const session = require("express-session");
+// const passport = require("passport");
 // const authRouter = require("./routes/auth");
 const apiRouter = require("./routes/index");
 const cors = require("cors");
 
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+// const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const seedDatabase = require("./seed/index");
 const db = require("./database");
-const sessionStore = new SequelizeStore({ db });
+// const sessionStore = new SequelizeStore({ db });
 
 const app = express();
 
-passport.serializeUser((user, done) => done(null, user.id));
-passport.deserializeUser(async (id, done) => {
-  try {
-    let user = await db.models.user.findByPk(id);
-    done(null, user);
-  } catch(err) {
-    done(err);
-  }
-});
+// passport.serializeUser((user, done) => done(null, user.id));
+// passport.deserializeUser(async (id, done) => {
+//   try {
+//     let user = await db.models.user.findByPk(id);
+//     done(null, user);
+//   } catch(err) {
+//     done(err);
+//   }
+// });
 
 const syncDb = async () => {
   await db.sync({ force:true});
@@ -95,17 +95,8 @@ const configureApp = () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended:true }));
   app.use(cors({ credentials: true}));
-  app.use(
-    session({
-      secret: "SuperSecret",
-      store: sessionStore, 
-      resave: false,
-      saveUninitialized: false
-    })
-  );
-  app.use(passport.initialize());
-  app.use(passport.session());
-
+  // app.use(passport.initialize());
+  // app.use(passport.session());
   app.use("/api", apiRouter);
 };  
 const startListening = () => {
@@ -118,7 +109,7 @@ const startListening = () => {
   });
 };
 const bootApp = async () => {
-  await sessionStore.sync();
+  // await sessionStore.sync();
   await syncDb();
   await seedDatabase();
   await configureApp();
