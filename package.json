@@ -6,6 +6,7 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "clean-css": "^4.2.1",
     "connect-session-sequelize": "^6.0.0",
@@ -16,12 +17,15 @@
     "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "express-session": "^1.17.0",
+    "express-validator": "^6.3.1",
     "heroku": "^7.35.1",
     "http-errors": "~1.6.3",
+    "install": "^0.13.0",
     "is-empty": "^1.2.0",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
+    "node-pre-gyp": "^0.14.0",
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
