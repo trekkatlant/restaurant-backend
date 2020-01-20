@@ -130,13 +130,9 @@ router.post("/signup",
             phoneNum : req.body.phoneNum,
             points : 10
           })
-          if(new_user) {
-            req.session.user = new_user;
-            res.status(201).send(new_user);
-          } else {
-              res.status(400).send("User not created");
-          } 
-      }
+          req.session.user = new_user;
+          res.status(201).send(new_user);
+        }
     } catch(err) {
         res.status(400).send(err);
     }
