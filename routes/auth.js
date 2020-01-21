@@ -91,6 +91,9 @@ router.use(session({
   saveUninitialized: false
 }));
 
+router.get("/", (req, res, next) => {
+  res.status(200).send("Auth API route");
+});
 router.post("/login", async(req, res, next) => {
   try {
     let user = await User.findOne({ where: { email: req.body.email }});

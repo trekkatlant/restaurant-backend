@@ -6,8 +6,6 @@
 // const db = require("./database");
 // const cors = require("cors");
 // const express = require("express");
-// const SequelizeStore = require("connect-session-sequelize")(session.Store);
-// const sessionStore = new SequelizeStore({db});
 // const seedDatabase = require("./seed/index");
 // const app = express();
 
@@ -89,7 +87,7 @@ const app = express();
 // });
 
 const syncDb = async () => {
-  await db.sync({ force : false });
+  await db.sync({ force : true });
 };
 const configureApp = () => {
   app.use(express.json());
@@ -97,6 +95,7 @@ const configureApp = () => {
   app.use(cors({ credentials: true}));
   // app.use(passport.initialize());
   // app.use(passport.session());
+  
   app.use("/api", apiRouter);
 };  
 const startListening = () => {
