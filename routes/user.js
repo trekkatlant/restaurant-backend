@@ -51,6 +51,7 @@ router.post("/:id/address", async(req, res, next) => {
           state: req.body.state,
           zipCode : req.body.zipCode
         });
+        new_address.setUser(id);
         if(new_address){
           res.status(201).json(new_address);
         } else {

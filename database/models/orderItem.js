@@ -6,10 +6,10 @@ const OrderItem = db.define("orderItem", {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    price : {
-        type: Sequelize.DECIMAL(10,2),
-        allowNull: false
-    },
+    // price : {
+    //     type: Sequelize.DECIMAL(10,2),
+    //     allowNull: false
+    // },
     itemId : {
         type: Sequelize.INTEGER,
         allowNull: false
