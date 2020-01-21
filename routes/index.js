@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const authRoute = require("./auth");
 const menuRoute = require("./menu");
-const userAddressRoute = require("./userAddress");
+const userRoute = require("./user");
 router.use("/auth", authRoute);
 router.use("/menu", menuRoute);
 router.use("/users", userRoute);
