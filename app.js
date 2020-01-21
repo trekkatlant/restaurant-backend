@@ -87,7 +87,7 @@ const app = express();
 // });
 
 const syncDb = async () => {
-  await db.sync({ force : true });
+  await db.sync({ force : false });
 };
 const configureApp = () => {
   app.use(express.json());
