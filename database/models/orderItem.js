@@ -10,7 +10,7 @@ const OrderItem = db.define("orderItem", {
     //     type: Sequelize.DECIMAL(10,2),
     //     allowNull: false
     // },
-    menuItemId : {
+    itemId : {
         type: Sequelize.INTEGER,
         allowNull: false
     }
