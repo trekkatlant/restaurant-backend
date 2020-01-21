@@ -6,8 +6,6 @@
 // const db = require("./database");
 // const cors = require("cors");
 // const express = require("express");
-// const SequelizeStore = require("connect-session-sequelize")(session.Store);
-// const sessionStore = new SequelizeStore({db});
 // const seedDatabase = require("./seed/index");
 // const app = express();
 
