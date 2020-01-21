@@ -95,6 +95,7 @@ const configureApp = () => {
   app.use(cors({ credentials: true}));
   // app.use(passport.initialize());
   // app.use(passport.session());
+  
   app.use("/api", apiRouter);
 };  
 const startListening = () => {
