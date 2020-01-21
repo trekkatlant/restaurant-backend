@@ -1,8 +1,7 @@
-const bodyParser = require("body-parser");
-const express = require("express");
-const router = express.Router();
 const db = require("../database/db");
 const Menu  = require("../database/models/menu");
+const router = require("express").Router();
+const bodyParser = require("body-parser");
 router.use(bodyParser.json());
 
 //gets all menu items

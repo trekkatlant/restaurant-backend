@@ -78,14 +78,17 @@ const { check, validationResult } = require("express-validator");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const User  = require("../database/models/user");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("../database/db");
+const sessionStore = new SequelizeStore({ db });
 
 router.use(bodyParser.json());
 router.use(cookieParser());
 router.use(session({
+  store : sessionStore,
   secret: "byteME",
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 router.post("/login", async(req, res, next) => {
@@ -96,6 +99,7 @@ router.post("/login", async(req, res, next) => {
         let payload = { email : user.email };
         let token = jwt.sign(payload, "byteME");
         req.session.user = user;
+        console.log(req.session)
         res.status(200).send({ user, token });
       } else {
           res.status(401).send("Wrong password")
