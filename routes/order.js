@@ -22,13 +22,14 @@ router.get("/", async(req,res,next) => {
     }
 })
 
-router.post("/:id", async(req,res, next) => {
+router.post("/", async(req,res, next) => {
     try{
+        let currentOrder = await Order.create()
         let orderitem = await OrderItem.create({
             itemId : req.body.itemId,
-            quantity : req.body.quantity
+            quantity : req.body.quantity,
         });
-        orderitem.setOrder(id);
+        await orderitem.setOrder(currentOrder);
         if(orderitem){
             res.status(201).json(orderitem);
         }  
