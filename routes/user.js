@@ -1,6 +1,7 @@
 const db = require("../database/db");
 const User = require("../database/models/user");
 const UserAddress  = require("../database/models/userAddress");
+const PaymentInfo = require("../database/models/paymentInfo");
 const router = require("express").Router();
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
@@ -62,12 +63,22 @@ router.post("/:id/address", async(req, res, next) => {
         res.status(400).send(err);
     }
 });
-// router.post("/:id/payment", async(req, res, next) => {
-//   try {
-//     let data = 
-//   } catch(err) {
-//       res.status(400).send(err);
-//   }
-// })
+router.post("/:id/payment", async(req, res, next) => {
+  try {
+    let new_payment = await PaymentInfo.create({
+      firstName : req.body.firstName,
+      lastName : req.body.lastName,
+      cardNum : req.body.cardNum,
+      secCode : req.body.secCode,
+    });
+    if(new_payment) {
+      res.status(201).send("Payment info successfully added");
+    } else {
+        res.status(400).send("Payment info couldn't be added");
+    }
+  } catch(err) {
+      res.status(400).send(err);
+  }
+});
 
 module.exports = router;
