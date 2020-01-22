@@ -36,12 +36,12 @@ const PopulatePaymentInfoTable = async (payments) => {
             lastName : body.lastName,
             cardNum : body.cardNum,
             secCode : body.secCode,
-            billStreetNum : body.billStreetNum,
-            billStreet : body.billStreet,
-            billAptNum : body.billAptNum,
-            billCity : bill.billCity,
-            billState : body.billState,
-            billZip : body.billZip
+            streetNum : body.streetNum,
+            street : body.street,
+            aptNum : body.aptNum,
+            city : bill.city,
+            state : body.state,
+            zipCode : body.zipCode
         });
     }
 };
