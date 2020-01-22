@@ -1,4 +1,4 @@
-let restaurantAdds = [
+let addresses = [
     {
         streetNum : "1247",
         street : "5th Ave",
@@ -8,4 +8,4 @@ let restaurantAdds = [
     }
 ];
 
-module.exports = restaurantAdds;
+module.exports = addresses;

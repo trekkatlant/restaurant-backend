@@ -10,10 +10,10 @@ const RestaurantAddress = db.define("restaurantAddress", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    aptNum : {
-        type: Sequelize.STRING,
-        allowNull: true
-    },
+    // aptNum : {
+    //     type: Sequelize.STRING,
+    //     allowNull: true
+    // },
     city: {
         type: Sequelize.STRING,
         allowNull: false
@@ -26,5 +26,7 @@ const RestaurantAddress = db.define("restaurantAddress", {
         type: Sequelize.STRING,
         allowNull: false
     }
+},{
+    timestamps: false
 });
 module.exports = RestaurantAddress;

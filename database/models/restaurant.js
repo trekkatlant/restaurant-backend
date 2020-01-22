@@ -10,6 +10,8 @@ const Restaurant = db.define("restaurant", {
         type: Sequelize.STRING,
         allowNull: false
     }
+},{
+    timestamps: false
 });
 
 module.exports = Restaurant;

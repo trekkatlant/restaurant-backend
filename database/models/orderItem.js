@@ -14,6 +14,8 @@ const OrderItem = db.define("orderItem", {
         type: Sequelize.INTEGER,
         allowNull: false
     }
+},{
+    timestamps: false
 });
 
 module.exports = OrderItem;

@@ -3,7 +3,7 @@ Menu, RestaurantAddress, Order, OrderItem } = require("../database/models");
 const items = require("./menu");
 const users = require("./user");
 const payments = require("./paymentInfo");
-const restaurantAddresses = require("./restaurantAddress");
+const addresses = require("./restaurantAddress");
 const restaurants = require("./restaurant");
 const userAddresses = require("./userAddress");
 
@@ -48,9 +48,9 @@ const PopulatePaymentInfoTable = async (payments) => {
         });
     }
 };
-const PopulateRestaurantAddressTable = async (restaurantAddresses) => {
-    for(let i=0;i<restaurantAddresses;i++){
-        let body = restaurantAddresses[i];
+const PopulateRestaurantAddressTable = async (addresses) => {
+    // for(let i=0; i<addresses; i++){
+        let body = addresses[0];
         let data = await RestaurantAddress.create({
             streetNum : body.streetNum,
             street : body.street,
@@ -58,16 +58,16 @@ const PopulateRestaurantAddressTable = async (restaurantAddresses) => {
             state : body.state,
             zipCode : body.zipCode
         });
-    }
+    // }
 };
 const PopulateRestaurantTable = async (restaurants) => {
-    for(let i=0;i<restaurants;i++){
-        let body = restaurants[i];
+    // for(let i=0; i<restaurants; i++){
+        let body = restaurants[0];
         let data = await Restaurant.create({
             name : body.name,
             phoneNum : body.phoneNum
         });
-    }
+    // }
 };
 const PopulateUserAddressTable = async (userAddresses) => {
     for(let i =0;i<userAddresses;i++){
@@ -87,7 +87,7 @@ const seedDatabase = async () => {
         await PopulateMenuTable(items);
         await PopulateUserTable(users);
         await PopulatePaymentInfoTable(payments);
-        await PopulateRestaurantAddressTable(restaurantAddresses);
+        await PopulateRestaurantAddressTable(addresses);
         await PopulateRestaurantTable(restaurants);
         await PopulateUserAddressTable(userAddresses);
         console.log("Database populated");
