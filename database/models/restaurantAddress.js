@@ -18,7 +18,7 @@ const RestaurantAddress = db.define("restaurantAddress", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    State : {
+    state : {
         type: Sequelize.STRING,
         allowNull: false
     },
