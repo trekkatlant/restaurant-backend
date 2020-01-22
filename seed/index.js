@@ -3,7 +3,8 @@ Menu, RestaurantAddress, Order, OrderItem } = require("../database/models");
 const items = require("./menu");
 const users = require("./user");
 const payments = require("./paymentInfo");
-const restaurantAddresses = require("./restaurantAddress";)
+const restaurantAddresses = require("./restaurantAddress");
+const restaurants = require("./restaurant");
 
 const PopulateMenuTable = async (items) => {
     for(let i=0; i<items.length; i++) {
@@ -58,12 +59,22 @@ const PopulateRestaurantAddressTable = async (restaurantAddresses) => {
         });
     }
 };
+const PopulateRestaurantTable = async (restaurants) => {
+    for(let i=0;i<restaurants;i++){
+        let body = restaurants[i];
+        let data = await Restaurant.create({
+            name : body.name,
+            phoneNum : body.phoneNum
+        });
+    }
+};
 const seedDatabase = async () => {
     try {
         await PopulateMenuTable(items);
         await PopulateUserTable(users);
         await PopulatePaymentInfoTable(payments);
         await PopulateRestaurantAddressTable(restaurantAddresses);
+        await PopulateRestaurantTable(restaurants);
         console.log("Database populated");
     } catch(err) {
         console.log(err);
