@@ -2,9 +2,9 @@ let restaurantAdds = [
     {
         streetNum : "1247",
         street : "5th Ave",
-        city : "Rego Park",
-        billState : "NY",
-        billZip : "11111"
+        city : "New York City",
+        state : "NY",
+        zipCode : "10011"
     }
 ];
 
