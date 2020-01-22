@@ -2,6 +2,7 @@ const { User, UserAddress, PaymentInfo, Restaurant,
 Menu, RestaurantAddress, Order, OrderItem } = require("../database/models");
 const items = require("./menu");
 const users = require("./user");
+const payments = require("./paymentInfo")
 
 const PopulateMenuTable = async (items) => {
     for(let i=0; i<items.length; i++) {
@@ -27,10 +28,28 @@ const PopulateUserTable = async (users) => {
         });
     }
 };
+const PopulatePaymentInfoTable = async (payments) => {
+    for(let i=0;i<payments.length; i++) {
+        let body = payments[i];
+        let data = await PaymentInfo.create({
+            firstName : body.firstName,
+            lastName : body.lastName,
+            cardNum : body.cardNum,
+            secCode : body.secCode,
+            billStreetNum : body.billStreetNum,
+            billStreet : body.billStreet,
+            billAptNum : body.billAptNum,
+            billCity : bill.billCity,
+            billState : body.billState,
+            billZip : body.billZip
+        });
+    }
+};
 const seedDatabase = async () => {
     try {
         await PopulateMenuTable(items);
         await PopulateUserTable(users);
+        await PopulatePaymentInfoTable(payments);
         console.log("Database populated");
     } catch(err) {
         console.log(err);
