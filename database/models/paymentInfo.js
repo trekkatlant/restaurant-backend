@@ -18,27 +18,27 @@ const PaymentInfo = db.define("paymentInfo", {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    billStreetNum : {
+    streetNum : {
         type: Sequelize.STRING,
         allowNull: false
     },
-    billStreet : {
+    street : {
         type: Sequelize.STRING,
         allowNull: false
     },
-    billAptNum : {
+    aptNum : {
         type: Sequelize.STRING,
         allowNull: true
     },
-    billCity : {
+    city : {
         type: Sequelize.STRING,
         allowNull: false
     },
-    billState : {
+    state : {
         type: Sequelize.STRING,
         allowNull: false
     },
-    billZip : {
+    zipCode : {
         type: Sequelize.STRING,
         allowNull: false
     },
