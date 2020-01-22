@@ -65,6 +65,8 @@ router.post("/:id/address", async(req, res, next) => {
 router.put("/:id/payment", async(req, res, next) => {
   try {
     let data = await PaymentInfo.update({
+      firstName : req.body.firstName,
+      lastName : req.body.lastName,
       streetNum : req.body.streetNum,
       street : req.body.street,
       aptNum : req.body.aptNum,
@@ -89,6 +91,12 @@ router.post("/:id/payment", async(req, res, next) => {
       lastName : req.body.lastName,
       cardNum : req.body.cardNum,
       secCode : req.body.secCode,
+      streetNum : req.body.streetNum,
+      street : req.body.street,
+      aptNum : req.body.aptNum,
+      city : req.body.city,
+      state : req.body.state,
+      zipCode : req.body.zipCode
     });
     if(new_payment) {
       res.status(201).send("Payment info successfully added");
