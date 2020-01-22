@@ -41,7 +41,7 @@ const PopulatePaymentInfoTable = async (payments) => {
             streetNum : body.streetNum,
             street : body.street,
             aptNum : body.aptNum,
-            city : bill.city,
+            city : body.city,
             state : body.state,
             zipCode : body.zipCode
         });

@@ -11,11 +11,11 @@ const PaymentInfo = db.define("paymentInfo", {
         allowNull: false
     },
     cardNum : {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     secCode: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     streetNum : {
