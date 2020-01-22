@@ -26,6 +26,8 @@ const UserAddress = db.define("userAddress", {
         type: Sequelize.STRING,
         allowNull: false
     }
+},{
+    timestamps: false
 });
 
 module.exports = UserAddress;

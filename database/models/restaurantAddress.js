@@ -26,5 +26,7 @@ const RestaurantAddress = db.define("restaurantAddress", {
         type: Sequelize.STRING,
         allowNull: false
     }
+},{
+    timestamps: false
 });
 module.exports = RestaurantAddress;

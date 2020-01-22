@@ -48,8 +48,8 @@ const PopulatePaymentInfoTable = async (payments) => {
     }
 };
 const PopulateRestaurantAddressTable = async (addresses) => {
-    for(let i=0; i<addresses; i++){
-        let body = addresses[i];
+    // for(let i=0; i<addresses; i++){
+        let body = addresses[0];
         let data = await RestaurantAddress.create({
             streetNum : body.streetNum,
             street : body.street,
@@ -57,16 +57,16 @@ const PopulateRestaurantAddressTable = async (addresses) => {
             state : body.state,
             zipCode : body.zipCode
         });
-    }
+    // }
 };
 const PopulateRestaurantTable = async (restaurants) => {
-    for(let i=0; i<restaurants; i++){
-        let body = restaurants[i];
+    // for(let i=0; i<restaurants; i++){
+        let body = restaurants[0];
         let data = await Restaurant.create({
             name : body.name,
             phoneNum : body.phoneNum
         });
-    }
+    // }
 };
 const seedDatabase = async () => {
     try {

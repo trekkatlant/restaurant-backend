@@ -46,6 +46,8 @@ const PaymentInfo = db.define("paymentInfo", {
     //     type: Sequelize.INTEGER,
     //     allowNull: false
     // }
+},{
+    timestamps: false
 });
 
 module.exports = PaymentInfo;
