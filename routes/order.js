@@ -24,11 +24,17 @@ router.get("/", async(req,res,next) => {
 
 router.post("/", async(req,res, next) => {
     try{
-        let currentOrder = await Order.create()
-        let orderitem = await OrderItem.create({
-            itemId : req.body.itemId,
-            quantity : req.body.quantity,
-        });
+        let currentOrder = await Order.create();
+        for(let key in req.body) {
+            let orderItem = await OrderItem.create({
+                itemId : key,
+                quantity : req.body[key]
+            })
+        }
+        // let orderitem = await OrderItem.create({
+        //     itemId : req.body.itemId,
+        //     quantity : req.body.quantity,
+        // });
         await orderitem.setOrder(currentOrder);
         if(orderitem){
             res.status(201).json(orderitem);
@@ -40,7 +46,6 @@ router.post("/", async(req,res, next) => {
       catch(err){
           res.status(400).send(err);
       }
-})
-
+});
 
 module.exports = router;

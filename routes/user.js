@@ -52,16 +52,35 @@ router.post("/:id/address", async(req, res, next) => {
           state: req.body.state,
           zipCode : req.body.zipCode
         });
-        new_address.setUser(id);
+        await new_address.setUser(id);
         if(new_address){
           res.status(201).json(new_address);
         } else {
             res.status(404).send("Address couldn't be added");
         }
-    }
-    catch(err){
+    } catch(err){
         res.status(400).send(err);
     }
+});
+router.put("/:id/payment", async(req, res, next) => {
+  try {
+    let data = await PaymentInfo.update({
+      streetNum : req.body.streetNum,
+      street : req.body.street,
+      aptNum : req.body.aptNum,
+      city : req.body.city,
+      state: req.body.state,
+      zipCode : req.body.zipCode
+    },
+    { where: { userId:id }});
+    if(data) {
+      res.status(200).send("Payment info update successful");
+    } else {
+      res.status(400).send("Payment info update unsuccessful");
+    }
+  } catch(err) {
+    res.status(400).send(err);
+  }
 });
 router.post("/:id/payment", async(req, res, next) => {
   try {
