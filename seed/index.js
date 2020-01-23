@@ -6,6 +6,13 @@ const payments = require("./paymentInfo");
 const addresses = require("./restaurantAddress");
 const restaurants = require("./restaurant");
 const userAddresses = require("./userAddress");
+const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+// const cookieParser = require("cookie-parser");
+// const session = require("express-session");
+const SequelizeStore = require("connect-session-sequelize");
+const db = require("../database/db");
+// const sessionStore = new SequelizeStore({ db });
 
 const PopulateMenuTable = async (items) => {
     for(let i=0; i<items.length; i++) {
@@ -21,9 +28,10 @@ const PopulateMenuTable = async (items) => {
 const PopulateUserTable = async (users) => {
     for(let i=0; i<users.length; i++) {
         let body = users[i];
-        let data = await User.create({
+        let hash_password = bcrypt.hashSync(body.password, bcrypt.genSaltSync(8));
+        let new_user = await User.create({
             email : body.email,
-            password : body.password,
+            password : hash_password,
             firstName : body.firstName,
             lastName : body.lastName,
             phoneNum : body.phoneNum,

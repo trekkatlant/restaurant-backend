@@ -8,7 +8,7 @@ router.use(bodyParser.json());
 
 router.get("/", async(req, res, next) => {
   try {
-    let data = User.findAll();
+    let data = await User.findAll();
     if(data) {
       res.status(200).json(data);
     } else {
