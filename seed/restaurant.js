@@ -1,7 +1,7 @@
 let restaurants = [
     {
         name : "Byte Me",
-        phoneNum : "9178764450"
+        phoneNum : "6464062563"
     }
 ]
 
