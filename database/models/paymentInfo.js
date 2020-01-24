@@ -42,10 +42,6 @@ const PaymentInfo = db.define("paymentInfo", {
         type: Sequelize.STRING,
         allowNull: false
     },
-    // userId : {
-    //     type: Sequelize.INTEGER,
-    //     allowNull: false
-    // }
 },{
     timestamps: false
 });
