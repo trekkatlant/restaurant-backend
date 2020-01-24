@@ -36,7 +36,7 @@ router.get("/:id", async(req, res, next) => {
 router.get("/:id/address", async(req, res, next) => {
   try {
     let data = await UserAddress.findOne({
-      where: {id: req.param.id}, include: [{ UserAddress }]
+      where: { id: req.param.id }, include: [{ UserAddress }]
     });
   } catch(err) {
       res.status(400).send(err);
@@ -61,6 +61,20 @@ router.post("/:id/address", async(req, res, next) => {
     } catch(err){
         res.status(400).send(err);
     }
+});
+router.get("/:id/payment", async(req, res, next) => {
+  try {
+    let data = await PaymentInfo.findOne({
+      where: { userId: req.body.id }, include: [{ User }]
+    });
+    if(data) {
+      res.status(200).json(data);
+    } else {
+        res.status(401).send("Payment info not found");
+    }
+  } catch(err) {
+      res.status(400).send(err);
+  }
 });
 router.put("/:id/payment", async(req, res, next) => {
   try {
@@ -98,6 +112,7 @@ router.post("/:id/payment", async(req, res, next) => {
       state : req.body.state,
       zipCode : req.body.zipCode
     });
+    await new_payment.setUser(id);
     if(new_payment) {
       res.status(201).send("Payment info successfully added");
     } else {
