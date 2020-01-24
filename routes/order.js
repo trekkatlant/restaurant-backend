@@ -4,7 +4,7 @@ const OrderItem = require("../database/models/orderItem");
 const router = require("express").Router();
 const bodyParser = require("body-parser");
 const express = require("express");
-const SendSMS = require("./send_sms");
+const sendMessage = require("./sendMessage");
 router.use(bodyParser.json());
 
 
@@ -44,13 +44,14 @@ router.post("/:id/item", async(req, res, next) => {
             orderId  : req.body.orderId
         });
         if(new_item) {
-            SendSMS();
             res.status(201).send("Item added to order");
+            sendMessage("9178868762", "Your order has been received!");
+            sendMessage("9178868762", "New order has been made!");
         } else {
             res.status(400).send("Item not added to order");
         }
     } catch(err) {
-
+        res.statusMessage(400).send(err);
     }
 });
 
