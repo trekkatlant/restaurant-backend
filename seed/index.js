@@ -54,7 +54,7 @@ const PopulatePaymentInfoTable = async (payments) => {
             state : body.state,
             zipCode : body.zipCode
         });
-        //await data.setUser(i+1);
+        await data.setUser(1);
     //}
 };
 const PopulateRestaurantAddressTable = async (addresses) => {

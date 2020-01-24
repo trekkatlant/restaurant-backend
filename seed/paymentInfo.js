@@ -1,7 +1,7 @@
 let payments = [
     {
-        firstName : "Josh",
-        lastName : "Bosh",
+        firstName : "Bob",
+        lastName : "Herman",
         cardNum : "123456789101123",
         secCode : "666",
         streetNum : "3232",

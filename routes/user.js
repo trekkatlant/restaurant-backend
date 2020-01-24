@@ -64,9 +64,10 @@ router.post("/:id/address", async(req, res, next) => {
 });
 router.get("/:id/payment", async(req, res, next) => {
   try {
-    let data = await PaymentInfo.findOne({
-      where: { userId: req.body.id }, include: [{ User }]
-    });
+    let data = await PaymentInfo.findAll();
+    // ({
+    //   where: { userId: req.body.id }, include: [{ User }]
+    // });
     if(data) {
       res.status(200).json(data);
     } else {

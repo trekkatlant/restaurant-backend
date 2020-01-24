@@ -36,7 +36,7 @@ router.post("/", async(req,res, next) => {
           res.status(400).send(err);
       }
 });
-router.post("/:id/item", async(req, res, next) => {
+router.post("/item", async(req, res, next) => {
     try {
         let new_item = OrderItem.create({
             quantity : req.body.quantity,
