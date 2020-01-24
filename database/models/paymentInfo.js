@@ -41,7 +41,7 @@ const PaymentInfo = db.define("paymentInfo", {
     zipCode : {
         type: Sequelize.STRING,
         allowNull: false
-    },
+    }
 },{
     timestamps: false
 });
