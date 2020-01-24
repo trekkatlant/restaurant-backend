@@ -80,7 +80,7 @@ const PopulateRestaurantTable = async (restaurants) => {
 const PopulateUserAddressTable = async (userAddresses) => {
     for(let i =0;i<userAddresses;i++){
         let body = userAddresses[i];
-        let data = await UserAddress.create({
+        let new_address = await UserAddress.create({
             streetNum : body.streetNum,
             street : body.street,
             aptNum : body.aptNum,
@@ -88,6 +88,7 @@ const PopulateUserAddressTable = async (userAddresses) => {
             state : body.state,
             zipCode : body.zipCode
         });
+        await new_address.setUser(i+1);
     }
 };
 const seedDatabase = async () => {

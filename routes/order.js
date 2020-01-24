@@ -20,32 +20,41 @@ router.get("/", async(req,res,next) => {
     catch(err){
         res.status(400).send(err);
     }
-})
-
+});
 router.post("/", async(req,res, next) => {
     try{
-        let currentOrder = await Order.create();
-        for(let key in req.body) {
-            let orderItem = await OrderItem.create({
-                itemId : key,
-                quantity : req.body[key]
-            })
+        let new_order = await Order.create();
+        if(new_order) {
+            res.status(201).json(new_order);
+        } else {
+            res.status(400).send("Order not created");
         }
+        // for(let key in req.body) {
+        //     let orderItem = await OrderItem.create({
+        //         itemId : key,
+        //         quantity : req.body[key]
+        //     })
+        // }
         // let orderitem = await OrderItem.create({
         //     itemId : req.body.itemId,
         //     quantity : req.body.quantity,
         // });
-        await orderitem.setOrder(currentOrder);
-        if(orderitem){
-            res.status(201).json(orderitem);
-        }  
-        else{
-            res.status(400).send("order couldn't be made");
-        }
+        // await orderitem.setOrder(currentOrder);
+        // if(orderitem){
+        //     res.status(201).json(orderitem);
+        // }  
+        // else{
+        //     res.status(400).send("order couldn't be made");
+        // }
       }
       catch(err){
           res.status(400).send(err);
       }
+});
+router.post("/:id/item", async(req, res, next) => {
+    try {
+        let new_item = Order
+    }
 });
 
 module.exports = router;
