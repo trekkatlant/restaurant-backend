@@ -26,8 +26,8 @@ const PopulateMenuTable = async (items) => {
     }
 };
 const PopulateUserTable = async (users) => {
-    for(let i=0; i<users.length; i++) {
-        let body = users[i];
+    //for(let i=0; i<users.length; i++) {
+        let body = users[0];
         let hash_password = bcrypt.hashSync(body.password, bcrypt.genSaltSync(8));
         let new_user = await User.create({
             email : body.email,
@@ -37,11 +37,11 @@ const PopulateUserTable = async (users) => {
             phoneNum : body.phoneNum,
             points : body.points
         });
-    }
+    //}
 };
 const PopulatePaymentInfoTable = async (payments) => {
-    for(let i=0;i<payments.length; i++) {
-        let body = payments[i];
+    //for(let i=0;i<payments.length; i++) {
+        let body = payments[0];
         let data = await PaymentInfo.create({
             firstName : body.firstName,
             lastName : body.lastName,
@@ -54,8 +54,8 @@ const PopulatePaymentInfoTable = async (payments) => {
             state : body.state,
             zipCode : body.zipCode
         });
-        await data.setUser(i+1);
-    }
+        //await data.setUser(i+1);
+    //}
 };
 const PopulateRestaurantAddressTable = async (addresses) => {
     // for(let i=0; i<addresses; i++){

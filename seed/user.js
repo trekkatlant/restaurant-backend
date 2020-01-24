@@ -6,15 +6,16 @@ let users = [
         lastName : "Berek",
         phoneNum : "9178868762",
         points : 50
-    },
-    {
-        email : "jim@gmail.com",
-        password : "jbeam",
-        firstName : "Jim",
-        lastName : "Beam",
-        phoneNum : "6466442222",
-        points : 10
     }
+    // ,
+    // {
+    //     email : "jim@gmail.com",
+    //     password : "jbeam",
+    //     firstName : "Jim",
+    //     lastName : "Beam",
+    //     phoneNum : "6466442222",
+    //     points : 10
+    // }
 ]
 
 module.exports = users;

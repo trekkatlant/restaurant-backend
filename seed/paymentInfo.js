@@ -10,19 +10,20 @@ let payments = [
         city : "Rego Park",
         state : "NY",
         zipCode : "11111"
-    },
-    {
-        firstName : "Jim",
-        lastName : "Beam",
-        cardNum : "1001001011111100",
-        secCode : "123",
-        streetNum : "402",
-        street : "Queens St",
-        aptNum : "A1",
-        city : "Flatbush",
-        state : "NY",
-        zipCode : "11001"
     }
+    //,
+    // {
+    //     firstName : "Jim",
+    //     lastName : "Beam",
+    //     cardNum : "1001001011111100",
+    //     secCode : "123",
+    //     streetNum : "402",
+    //     street : "Queens St",
+    //     aptNum : "A1",
+    //     city : "Flatbush",
+    //     state : "NY",
+    //     zipCode : "11001"
+    // }
 ];
 
 module.exports = payments;
