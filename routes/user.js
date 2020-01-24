@@ -35,9 +35,15 @@ router.get("/:id", async(req, res, next) => {
 });
 router.get("/:id/address", async(req, res, next) => {
   try {
-    let data = await UserAddress.findOne({
-      where: { id: req.param.id }, include: [{ UserAddress }]
-    });
+    let data = await UserAddress.findAll();
+    // ({
+    //   where: { id: req.param.id }, include: [{ UserAddress }]
+    // });
+    if(data) {
+      res.status(200).json(data);
+    } else {
+        res.status(404).send("User address not found");
+    }
   } catch(err) {
       res.status(400).send(err);
   }

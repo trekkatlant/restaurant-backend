@@ -1,4 +1,4 @@
-let userAdds = [
+let userAddresses = [
     {
         streetNum : "4838",
         street : "122nd St",
@@ -6,15 +6,16 @@ let userAdds = [
         city : "New York City",
         state : "NY",
         zipCode : "10011"
-    },
-    {
-        streetNum : "900",
-        street : "143rd St",
-        aptNum : "5A",
-        city : "New York City",
-        state : "NY",
-        zipCode : "10011"
     }
+    // ,
+    // {
+    //     streetNum : "900",
+    //     street : "143rd St",
+    //     aptNum : "5A",
+    //     city : "New York City",
+    //     state : "NY",
+    //     zipCode : "10011"
+    // }
 ];
 
-module.exports = userAdds;
+module.exports = userAddresses;
