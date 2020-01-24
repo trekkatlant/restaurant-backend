@@ -13,6 +13,10 @@ const OrderItem = db.define("orderItem", {
     itemId : {
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    orderId : {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 },{
     timestamps: false

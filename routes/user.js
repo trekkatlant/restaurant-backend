@@ -65,7 +65,7 @@ router.post("/:id/address", async(req, res, next) => {
 router.get("/:id/payment", async(req, res, next) => {
   try {
     let data = await PaymentInfo.findOne({
-      where: { userId:id }, include: [{ User}]
+      where: { userId: req.body.id }, include: [{ User }]
     });
     if(data) {
       res.status(200).json(data);
@@ -112,7 +112,7 @@ router.post("/:id/payment", async(req, res, next) => {
       state : req.body.state,
       zipCode : req.body.zipCode
     });
-    await 
+    await new_payment.setUser(id);
     if(new_payment) {
       res.status(201).send("Payment info successfully added");
     } else {

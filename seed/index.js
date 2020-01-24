@@ -54,6 +54,7 @@ const PopulatePaymentInfoTable = async (payments) => {
             state : body.state,
             zipCode : body.zipCode
         });
+        await data.setUser(i+1);
     }
 };
 const PopulateRestaurantAddressTable = async (addresses) => {
@@ -78,7 +79,7 @@ const PopulateRestaurantTable = async (restaurants) => {
     // }
 };
 const PopulateUserAddressTable = async (userAddresses) => {
-    for(let i =0;i<userAddresses;i++){
+    for(let i=0; i<userAddresses; i++){
         let body = userAddresses[i];
         let new_address = await UserAddress.create({
             streetNum : body.streetNum,

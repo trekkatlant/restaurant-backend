@@ -24,6 +24,7 @@ router.get("/", async(req,res,next) => {
 router.post("/", async(req,res, next) => {
     try{
         let new_order = await Order.create();
+        await new_order.setUser(1);
         if(new_order) {
             res.status(201).json(new_order);
         } else {
@@ -53,7 +54,18 @@ router.post("/", async(req,res, next) => {
 });
 router.post("/:id/item", async(req, res, next) => {
     try {
-        let new_item = Order
+        let new_item = OrderItem.create({
+            quantity : req.body.quantity,
+            itemId : req.body.itemId,
+            orderId  : req.body.orderId
+        });
+        if(new_item) {
+            res.status(201).send("Item added to order");
+        } else {
+            res.status(400).send("Item not added to order");
+        }
+    } catch(err) {
+
     }
 });
 
